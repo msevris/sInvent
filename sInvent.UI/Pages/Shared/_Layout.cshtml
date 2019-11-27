@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - sInvent.UI</title>
+
+    <environment include="Development">
+        <link href="~/lib/bulma-0.8.0/css/bulma.css" rel="stylesheet" />
+        <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </environment>
+    <environment exclude="Development">
+        <link href="~/lib/bulma-0.8.0/css/bulma.min.css" rel="stylesheet" />
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" asp-page="/Index">
+                <strong><i class="fas fa-barcode fa-2x"></i></strong>
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            About
+                        </a>
+                        <a class="navbar-item">
+                            Jobs
+                        </a>
+                        <a class="navbar-item">
+                            Contact
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            Report an issue
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-info">
+                            <i class="fas fa-sign-in-alt"></i><strong>&ensp; Sign up</strong>
+                        </a>
+                        <a class="button is-info">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2019 - sInvent.UI - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <environment include="Development">
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/lib/font-awesome/js/all.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/lib/font-awesome/js/all.min.js"></script>
+    </environment>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
