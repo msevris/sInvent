@@ -29,11 +29,11 @@ namespace sInvent.UI
         {
             services.AddDbContext<ApplicationDbContext>(opt => opt.UseSqlServer(_cfg["DefaultConnection"], ma => ma.MigrationsAssembly("sInvent.Database")));
 
-            services.Configure<CookiePolicyOptions>(options =>
+            services.Configure<CookiePolicyOptions>(opt =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
+                opt.CheckConsentNeeded = context => true;
+                opt.MinimumSameSitePolicy = SameSiteMode.None;
             });
             services.AddIdentity<IdentityUser, IdentityRole>(opt =>
              {

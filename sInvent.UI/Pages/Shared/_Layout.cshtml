@@ -20,7 +20,7 @@
     <nav class="navbar is-info" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" asp-page="/Index">
-                <strong><i class="fas fa-boxes fa-2x"></i></strong>
+                <strong><i class="fas fa-boxes"></i></strong>
             </a>
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -34,11 +34,9 @@
             <div class="navbar-start">
                 @if(User.Identity.IsAuthenticated)
                 {
-                    <div class="navbar-item">
                         <a class="navbar-item" asp-page="/Admin/Index">
                             Administration
                         </a>
-                    </div>
                 }
             </div>
 
@@ -72,7 +70,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2019 - sInvent.UI - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2019 - sInvent.UI - <a asp-page="/Admin/Index">Admin Login</a>
         </div>
     </footer>
 

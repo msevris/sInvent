@@ -23,14 +23,14 @@ namespace sInvent.Application.UsersAdmin
         }
         public async Task<bool> Execute(Seek seek)
         {
-            var managerUser = new IdentityUser()
+            var adminUser = new IdentityUser()
             {
                 UserName = seek.UserName
             };
-            await _userManager.CreateAsync(managerUser,"password");
+            await _userManager.CreateAsync(adminUser,"password");
 
-            var managerClaim = new Claim("Role","Manager");
-            await _userManager.AddClaimAsync(managerUser,managerClaim);
+            var adminClaim = new Claim("Role","Admin");
+            await _userManager.AddClaimAsync(adminUser,adminClaim);
             
             return true;
         }

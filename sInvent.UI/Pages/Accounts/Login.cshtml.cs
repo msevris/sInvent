@@ -19,22 +19,24 @@ namespace sInvent.UI.Pages.Accounts
         [BindProperty]
         public LoginViewModel Input { get; set; }
 
+        public void OnGet()
+        {
+        }
+
         public async Task<IActionResult> OnPost()
         {
            var result = await _signInManager.PasswordSignInAsync(Input.Username,Input.Password,false,false);
             if (result.Succeeded)
             {
-                return RedirectToAction("/Admin/Index");
+                return RedirectToPage("/Admin/Index");
             }
             else
             {
-                return RedirectToPage("/Index");
+                return RedirectToPage("Index");
             }
         }
 
-        public void OnGet()
-        {
-        }
+       
 
         public class LoginViewModel
         {
