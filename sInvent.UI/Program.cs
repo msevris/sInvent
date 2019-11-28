@@ -37,8 +37,8 @@ namespace sInvent.UI
                         {
                             UserName = "Manager"
                         };
-                        userManager.CreateAsync(adminUser,"Adm!n123").GetAwaiter().GetResult();
-                        userManager.CreateAsync(managerUser,"M@nag123").GetAwaiter().GetResult();
+                        userManager.CreateAsync(adminUser,"password").GetAwaiter().GetResult();
+                        userManager.CreateAsync(managerUser,"password").GetAwaiter().GetResult();
 
                         var adminClaim = new Claim("Role","Admin");
                         var managerClaim = new Claim("Role","Manager");

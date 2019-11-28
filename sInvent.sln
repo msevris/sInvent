@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sInvent.UI", "sInvent.UI\sInvent.UI.csproj", "{A2E9A104-C8C9-41B3-94B2-177B711747D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sInvent.UI", "sInvent.UI\sInvent.UI.csproj", "{A2E9A104-C8C9-41B3-94B2-177B711747D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sInvent.Domain", "sInvent.Domain\sInvent.Domain.csproj", "{084DC25C-D5ED-4EB5-A922-208D5B6E0282}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sInvent.Domain", "sInvent.Domain\sInvent.Domain.csproj", "{084DC25C-D5ED-4EB5-A922-208D5B6E0282}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sInvent.Database", "sInvent.Database\sInvent.Database.csproj", "{1C12ADC9-A409-4EB9-A4B1-9AB5EB46636C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sInvent.Database", "sInvent.Database\sInvent.Database.csproj", "{1C12ADC9-A409-4EB9-A4B1-9AB5EB46636C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sInvent.Application", "sInvent.Application\sInvent.Application.csproj", "{6FBFFC7C-6753-441A-A86C-E59ED0B05503}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sInvent.Application", "sInvent.Application\sInvent.Application.csproj", "{6FBFFC7C-6753-441A-A86C-E59ED0B05503}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

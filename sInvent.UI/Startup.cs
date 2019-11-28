@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using sInvent.Application;
 using sInvent.Database;
 
 namespace sInvent.UI
@@ -40,10 +41,29 @@ namespace sInvent.UI
                  opt.Password.RequiredLength = 3;
                  opt.Password.RequireNonAlphanumeric = false;
                  opt.Password.RequireUppercase = false;
-             });
+             })
+             .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.ConfigureApplicationCookie(opt =>
+            {
+                opt.LoginPath = "/Accounts/Login";
+            });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddAuthorization(opt =>
+            {
+                opt.AddPolicy("Admin", policy => policy.RequireClaim("Role", "Admin"));
+                opt.AddPolicy("Manager", policy => policy.RequireAssertion(cond =>
+                     cond.User.HasClaim("Role", "Manager") || cond.User.HasClaim("Role", "Admin")));
+            });
+            services.AddMvc()
+                .AddRazorPagesOptions(opt =>
+                {
+                    opt.Conventions.AuthorizeFolder("/Admin");
+                    opt.Conventions.AuthorizePage("/Admin/ConfigureUsers", "Admin");
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddAplicationServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +82,7 @@ namespace sInvent.UI
             app.UseCookiePolicy();
 
             app.UseAuthentication();
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

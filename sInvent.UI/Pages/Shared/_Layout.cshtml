@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,7 +20,7 @@
     <nav class="navbar is-info" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" asp-page="/Index">
-                <strong><i class="fas fa-barcode fa-2x"></i></strong>
+                <strong><i class="fas fa-boxes fa-2x"></i></strong>
             </a>
 
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -31,40 +32,30 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        More
-                    </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            About
-                        </a>
-                        <a class="navbar-item">
-                            Jobs
-                        </a>
-                        <a class="navbar-item">
-                            Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Report an issue
+                @if(User.Identity.IsAuthenticated)
+                {
+                    <div class="navbar-item">
+                        <a class="navbar-item" asp-page="/Admin/Index">
+                            Administration
                         </a>
                     </div>
-                </div>
+                }
             </div>
 
             <div class="navbar-end">
+                
                 <div class="navbar-item">
                     <div class="buttons">
                         <a class="button is-info">
                             <i class="fas fa-sign-in-alt"></i><strong>&ensp; Sign up</strong>
                         </a>
-                        <a class="button is-info">
+                        <a class="button is-info" asp-page="/Accounts/Login">
                             Log in
                         </a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="navbar-item" asp-controller="Account" asp-action="Logout">Sign Out</a>
+                        }
                     </div>
                 </div>
             </div>

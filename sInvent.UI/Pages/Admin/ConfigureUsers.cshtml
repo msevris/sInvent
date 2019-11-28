@@ -1,0 +1,13 @@
+﻿@page
+@model sInvent.UI.Pages.Admin.ConfigureUsersModel
+@{
+}
+
+<div id="app" class="container">
+    <input v-model="username" />
+    <button class="is-info" @@click="createUser()"><i class="fas fa-user-plus"></i>&ensp; a User</button>
+</div>
+
+@section scripts{ 
+    <script src="~/js/admin/users.js"></script>
+}

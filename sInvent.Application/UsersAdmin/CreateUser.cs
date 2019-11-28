@@ -27,7 +27,7 @@ namespace sInvent.Application.UsersAdmin
             {
                 UserName = seek.UserName
             };
-            await _userManager.CreateAsync(managerUser,"M@nag123");
+            await _userManager.CreateAsync(managerUser,"password");
 
             var managerClaim = new Claim("Role","Manager");
             await _userManager.AddClaimAsync(managerUser,managerClaim);
