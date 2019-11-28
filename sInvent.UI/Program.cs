@@ -31,7 +31,8 @@ namespace sInvent.UI
                     {
                         var adminUser = new IdentityUser()
                         {
-                            UserName = "Admin"
+                            UserName = "Admin",
+                            Email = "admin@admin.com"
                         };
                         var managerUser = new IdentityUser()
                         {

@@ -32,11 +32,9 @@ namespace sInvent.UI.Pages.Accounts
             }
             else
             {
-                return RedirectToPage("Index");
+                return Page();
             }
         }
-
-       
 
         public class LoginViewModel
         {

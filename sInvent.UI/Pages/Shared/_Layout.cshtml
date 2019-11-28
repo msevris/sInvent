@@ -18,6 +18,7 @@
 </head>
 <body>
     <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        
         <div class="navbar-brand">
             <a class="navbar-item" asp-page="/Index">
                 <strong><i class="fas fa-boxes"></i></strong>
@@ -30,32 +31,10 @@
             </a>
         </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                @if(User.Identity.IsAuthenticated)
-                {
-                        <a class="navbar-item" asp-page="/Admin/Index">
-                            Administration
-                        </a>
-                }
-            </div>
 
+        <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-end">
-                
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-info">
-                            <i class="fas fa-sign-in-alt"></i><strong>&ensp; Sign up</strong>
-                        </a>
-                        <a class="button is-info" asp-page="/Accounts/Login">
-                            Log in
-                        </a>
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <a class="navbar-item" asp-controller="Account" asp-action="Logout">Sign Out</a>
-                        }
-                    </div>
-                </div>
+                <partial name="_LoginPartial"/>
             </div>
         </div>
     </nav>

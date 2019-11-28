@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+    <div id="navbarBasicExample">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <div class="navbar-item">
+                <div class="buttons">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="button is-info" asp-page="/Admin/Index">
+                            Administration
+                        </a>
+                    }
+                    <a class="button is-info" asp-controller="Account" asp-action="Logout">Sign Out</a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-info" asp-page="/Accounts/Register">
+                            <i class="fas fa-sign-in-alt"></i><strong>&ensp; Sign In</strong>
+                        </a>
+                        <a class="button is-info" asp-page="/Accounts/Login">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
