@@ -11,10 +11,12 @@ namespace sInvent.UI.Pages.Accounts
     public class LoginModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager)
+        public LoginModel(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _signInManager = signInManager;
+            _userManager = userManager;
         }
         [BindProperty]
         public LoginViewModel Input { get; set; }
@@ -25,7 +27,8 @@ namespace sInvent.UI.Pages.Accounts
 
         public async Task<IActionResult> OnPost()
         {
-           var result = await _signInManager.PasswordSignInAsync(Input.Username,Input.Password,false,false);
+
+            var result = await _signInManager.PasswordSignInAsync(Input.Username, Input.Password,false,false);
             if (result.Succeeded)
             {
                 return RedirectToPage("/Admin/Index");
@@ -39,6 +42,7 @@ namespace sInvent.UI.Pages.Accounts
         public class LoginViewModel
         {
             public string Username { get; set; }
+            public string Email { get; set; }
             public string Password { get; set; }
         }
 

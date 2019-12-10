@@ -12,6 +12,7 @@
                     <p class="subtitle has-text-black">Please signIn to proceed.</p>
                     <div class="box">
                         <form method="post">
+                            <div asp-validation-summary="All" class="is-danger"></div>
                             <div class="field">
                                 <p class="control has-icons-left has-icons-right">
                                     <input class="input" type="email" placeholder="Email" asp-for="Input.Email">

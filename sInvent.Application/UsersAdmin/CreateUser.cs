@@ -20,12 +20,14 @@ namespace sInvent.Application.UsersAdmin
         public class Seek
         {
             public string UserName { get; set; }
+            public string Email { get; set; }
         }
         public async Task<bool> Execute(Seek seek)
         {
             var adminUser = new IdentityUser()
             {
-                UserName = seek.UserName
+                UserName = seek.UserName,
+                Email = seek.Email
             };
             await _userManager.CreateAsync(adminUser,"password");
 

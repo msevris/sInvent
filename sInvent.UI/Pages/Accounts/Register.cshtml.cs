@@ -13,24 +13,29 @@ namespace sInvent.UI.Pages.Accounts
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public RegisterModel(
             SignInManager<IdentityUser> signInManager,
-            UserManager<IdentityUser> userManager)
+            UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _roleManager = roleManager;
         }
         
         [BindProperty]
         public SignInViewModel Input { get; set; }
 
-        public void OnGet()
+        public void OnGet(string returnUrl = null)
         {
+            ViewData["roles"] = _roleManager.Roles.ToList();
         }
 
         public async Task<IActionResult> OnPost()
         {
+            var role = _roleManager.FindByNameAsync(Input.Email);
             var user = new IdentityUser { UserName = Input.Email, Email = Input.Email};
             var result = await _userManager.CreateAsync(user,Input.Password);
             if (result.Succeeded)
@@ -56,7 +61,7 @@ namespace sInvent.UI.Pages.Accounts
             public string Email { get; set; }
 
             [Required]
-            [DataType(DataType.Password)]
+            [DataType(DataType.Password,ErrorMessage ="Please try again")]
             [Display(Name="Password")]
             public string Password { get; set; }
             

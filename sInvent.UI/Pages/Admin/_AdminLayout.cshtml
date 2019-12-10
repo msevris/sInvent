@@ -29,7 +29,7 @@
             </div>
             <div id="navMenu" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item" href="admin.html">
+                    <a class="navbar-item" asp-page="/Index">
                         Home
                     </a>
                     <a class="navbar-item" href="admin.html">
@@ -71,7 +71,7 @@
                             <a>Manage Your Team</a>
                             <ul>
                                 <li><a>Members</a></li>
-                                <li><a>Plugins</a></li>
+                                <li class="navbar-item"><a class="navbar-link" asp-area="" asp-controller="Role" asp-action="Index">Roles</a></li>
                                 <li><a>Add a member</a></li>
                                 <li><a>Remove a member</a></li>
                             </ul>
@@ -270,13 +270,14 @@
     </div>
 
     <div class="container">
-        <partial name="_CookieConsentPartial" />
         @RenderBody()
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer">
         <div class="container">
-            &copy; 2019 - sInvent.UI
+            <div class="content has-text-centered">
+                &copy; 2019 - sInvent.UI
+            </div>
         </div>
     </footer>
 
